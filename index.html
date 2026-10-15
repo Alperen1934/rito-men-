@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>RITO Menü | Caffee · Bakery · Pizza</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rito: {
+              bg: '#F8F7F2',
+              card: '#F3F1E9',
+              gold: '#9E7B4F',
+              goldLight: '#C5A880',
+              dark: '#1C1B19',
+              muted: '#6E6A63',
+              border: '#E5E0D5'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            editorial: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Inter"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F8F7F2;
+      color: #1C1B19;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .diamond {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #9E7B4F;
+      transform: rotate(45deg);
+    }
+    .diamond-sm {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background-color: #9E7B4F;
+      transform: rotate(45deg);
+    }
+    .section-anchor {
+      scroll-margin-top: 84px;
+    }
+    .nav-pill.active {
+      background-color: #1C1B19;
+      color: #F8F7F2;
+      border-color: #1C1B19;
+    }
+    .dough-badge.active {
+      background-color: #9E7B4F;
+      color: #FFFFFF;
+      border-color: #9E7B4F;
+    }
+  </style>
+</head>
+<body class="font-sans selection:bg-rito-gold selection:text-white">
+
+  <!-- Top Cover / Hero Banner (Page 1 of PDF) -->
+  <header id="top" class="relative pt-12 pb-10 px-6 text-center border-b border-rito-border max-w-2xl mx-auto">
+    <div class="mb-5 flex justify-center">
+      <span class="diamond"></span>
+    </div>
+    
+    <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-8">
+      CAFFEE &nbsp;·&nbsp; BAKERY &nbsp;·&nbsp; PİZZA
+    </p>
+
+    <h1 class="font-serif text-5xl sm:text-6xl tracking-[0.22em] font-normal text-rito-dark mb-5 pl-[0.22em]">
+      RITO
+    </h1>
+
+    <div class="w-24 h-px bg-rito-border mx-auto mb-6"></div>
+
+    <div class="flex items-center justify-center gap-4 mb-8">
+      <span class="diamond-sm"></span>
+      <span class="font-serif text-base sm:text-lg tracking-[0.35em] text-rito-dark pl-[0.35em]">MENÜ</span>
+      <span class="diamond-sm"></span>
+    </div>
+
+    <p class="font-editorial italic text-xl sm:text-2xl text-rito-muted font-normal tracking-wide mb-6">
+      Günün her saatinde, İtalyan zarafetiyle.
+    </p>
+
+    <div class="w-28 h-px bg-[#DFC5C0] mx-auto"></div>
+  </header>
+
+  <!-- Sticky Horizontal Category Navigation + Search & Filter Bar -->
+  <div class="sticky top-0 z-40 bg-[#F8F7F2]/95 backdrop-blur-md border-b border-rito-border shadow-sm transition-all">
+    <div class="max-w-2xl mx-auto">
+      <!-- Category Pills -->
+      <nav aria-label="Menü Kategorileri" class="flex items-center gap-2 overflow-x-auto no-scrollbar px-4 py-3">
+        <a href="#lapizza" data-target="lapizza" class="nav-pill active shrink-0 px-4 py-1.5 rounded-full border border-rito-border text-xs font-serif tracking-[0.18em] uppercase transition-all duration-200 text-rito-dark hover:border-rito-gold">
+          LAPIZZA
+        </a>
+        <a href="#lapasta" data-target="lapasta" class="nav-pill shrink-0 px-4 py-1.5 rounded-full border border-rito-border text-xs font-serif tracking-[0.18em] uppercase transition-all duration-200 text-rito-dark hover:border-rito-gold">
+          LAPASTA
+        </a>
+        <a href="#colazione" data-target="colazione" class="nav-pill shrink-0 px-4 py-1.5 rounded-full border border-rito-border text-xs font-serif tracking-[0.18em] uppercase transition-all duration-200 text-rito-dark hover:border-rito-gold">
+          COLAZIONE
+        </a>
+        <a href="#piccoli-dolci" data-target="piccoli-dolci" class="nav-pill shrink-0 px-4 py-1.5 rounded-full border border-rito-border text-xs font-serif tracking-[0.18em] uppercase transition-all duration-200 text-rito-dark hover:border-rito-gold">
+          PICCOLI DOLCI
+        </a>
+        <a href="#caffe" data-target="caffe" class="nav-pill shrink-0 px-4 py-1.5 rounded-full border border-rito-border text-xs font-serif tracking-[0.18em] uppercase transition-all duration-200 text-rito-dark hover:border-rito-gold">
+          CAFFÈ
+        </a>
+        <a href="#bevande" data-target="bevande" class="nav-pill shrink-0 px-4 py-1.5 rounded-full border border-rito-border text-xs font-serif tracking-[0.18em] uppercase transition-all duration-200 text-rito-dark hover:border-rito-gold">
+          BEVANDE
+        </a>
+      </nav>
+
+      <!-- Search & Quick Filter Bar -->
+      <div class="px-4 pb-2.5 flex items-center gap-2">
+        <div class="relative flex-1">
+          <svg class="w-4 h-4 text-rito-muted absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+          </svg>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Menüde lezzet veya malzeme ara..."
+            class="w-full pl-9 pr-8 py-1.5 bg-white/80 border border-rito-border rounded-full text-xs text-rito-dark placeholder:text-rito-muted focus:outline-none focus:border-rito-gold transition"
+          />
+          <button id="clearSearchBtn" type="button" aria-label="Aramayı Temizle" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-rito-muted hover:text-rito-dark">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Menu Content Container -->
+  <main id="menuContainer" class="max-w-2xl mx-auto px-5 sm:px-8 pt-8 pb-20 space-y-16">
+
+    <!-- Empty Search State -->
+    <div id="emptyState" class="hidden py-16 text-center">
+      <div class="mb-3 flex justify-center"><span class="diamond"></span></div>
+      <p class="font-serif text-lg text-rito-dark mb-1">Aradığınız kriterlere uygun lezzet bulunamadı.</p>
+      <p class="font-editorial italic text-base text-rito-muted mb-4">Farklı bir malzeme veya ürün adı deneyebilirsiniz.</p>
+      <button id="resetSearchBtn" type="button" class="px-5 py-2 rounded-full bg-rito-dark text-rito-bg text-xs tracking-widest uppercase font-serif hover:bg-rito-gold transition">
+        Tüm Menüyü Göster
+      </button>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 1. LAPIZZA (Pages 2, 3, 4, 5)              -->
+    <!-- ========================================== -->
+    <section id="lapizza" class="menu-section section-anchor">
+      <!-- Section Header -->
+      <div class="text-center mb-8">
+        <div class="mb-3 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-1.5 pl-[0.35em]">
+          LAPIZZA
+        </p>
+        <h2 class="font-serif text-2xl sm:text-3xl tracking-[0.2em] text-rito-dark uppercase mb-3 pl-[0.2em]">
+          PİZZA
+        </h2>
+        <div class="w-32 h-[1.5px] bg-rito-dark mx-auto mb-4"></div>
+        <p class="font-editorial italic text-xl sm:text-2xl text-rito-muted">
+          Her gün taze hazırlanan hamurdan.
+        </p>
+
+        <!-- Interactive Dough Highlight Filter -->
+        <div class="mt-5 inline-flex flex-wrap items-center justify-center gap-1.5 bg-rito-card p-1.5 rounded-full border border-rito-border">
+          <button type="button" data-dough="all" class="dough-badge active px-3 py-1 rounded-full text-[11px] font-medium tracking-wide transition">
+            Tüm Hamurlar
+          </button>
+          <button type="button" data-dough="ince" class="dough-badge px-3 py-1 rounded-full text-[11px] font-medium tracking-wide text-rito-dark hover:text-rito-gold transition">
+            İnce Kenar (200 gr)
+          </button>
+          <button type="button" data-dough="napoliten" class="dough-badge px-3 py-1 rounded-full text-[11px] font-medium tracking-wide text-rito-dark hover:text-rito-gold transition">
+            Napoliten (300 gr)
+          </button>
+          <button type="button" data-dough="eksi" class="dough-badge px-3 py-1 rounded-full text-[11px] font-medium tracking-wide text-rito-dark hover:text-rito-gold transition">
+            Ekşi Mayalı (300 gr)
+          </button>
+        </div>
+      </div>
+
+      <!-- Pizza Items List (18 Pizzas across Pages 2-5) -->
+      <div class="space-y-7" id="pizzaList">
+
+        <!-- Page 2 Pizzas -->
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Pepperoni:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, kayseri sucuğu, dana pepperoni.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1500 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">670 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1500 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">670 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Bol Malzemeli:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, kayseri sucuğu, dana sosis, mantar, siyah zeytin, yeşil zeytin, mısır, yeşil biber, kırmızı biber.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">670 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1500 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">670 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Margherita:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~900 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">340 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1100 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">440 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1100 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">440 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Quattro (4 Peynirli):</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Labne, mozzarella, trakya eski kaşar, bergama tulum.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1100 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1300 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">670 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1300 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">670 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Dana Füme Kaburga:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, dana füme kaburga, kekik.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1300 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">490 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1300 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">590 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1300 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">590 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Page 3 Pizzas -->
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Kayseri Sucuklu:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, kayseri sucuğu.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">470 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1400 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1400 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Margherita Pesto:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, rito pesto sos, mozzarella peyniri, çeri domates, taze fesleğen.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1000 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">470 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Pesto Soslu:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito pesto sos, mozzarella peyniri, çeri domates, taze fesleğen.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1100 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">540 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1300 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">640 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1300 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">640 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Trüf Mantarlı:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, mantar, kekik trüf yağı.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1000 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">470 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Sosisli:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, dana sosis, mısır, yeşil zeytin, siyah zeytin.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">470 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1400 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">470 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1400 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Page 4 Pizzas -->
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Pastırmalı:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, kayseri pastırması.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">590 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1500 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">690 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1500 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">690 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Bianca Mix Sebzeli:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Labne, mozzarella peyniri, sarı biber, karnabahar, kırmızı biber, brokoli, orbit fasulye ve havuç, kekik.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1050 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">470 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1250 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1250 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Beyaz Peynir:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, beyaz peynir, yeşil zeytin, siyah zeytin, çeri domates, kırmızı biber, yeşil biber.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1050 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">470 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1250 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1250 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Şeftalili Pizza:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Labne, mozzarella peyniri, şeftali, roka.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1000 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">450 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1250 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">550 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1250 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">550 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Page 5 Pizzas -->
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Yaban Mersinli:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Labne, mozzarella peyniri, yaban mersini, bergama tulum peyniri.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1050 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">490 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1250 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">590 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1250 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">590 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Hellim:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, hellim peyniri, yeşil zeytin, siyah zeytin, çeri domates, kekik, pesto sos.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1100 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">470 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1350 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1350 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Diavola (İtalyan Acılı)</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, pepperoni, jalapeno biberi.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">470 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1450 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1450 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-item pb-6 border-b border-rito-border/70">
+          <h3 class="font-serif font-semibold text-base sm:text-lg text-rito-dark">Rito Kayseri Esintisi:</h3>
+          <p class="text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Rito sos, mozzarella peyniri, kayseri pastırması, kayseri sucuğu.</p>
+          <ul class="mt-2.5 space-y-1.5 pl-1 text-xs sm:text-sm">
+            <li data-dough-row="ince" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>İnce Kenar <span class="text-rito-muted">(200 gr) ~1200 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">570 TL</span>
+            </li>
+            <li data-dough-row="napoliten" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Napoliten <span class="text-rito-muted">(300 gr) ~1450 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">670 TL</span>
+            </li>
+            <li data-dough-row="eksi" class="dough-row flex items-center justify-between py-0.5 px-2 rounded transition">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rito-dark"></span><span>Ekşi Mayalı <span class="text-rito-muted">(300 gr) ~1450 kcal:</span></span></span>
+              <span class="font-semibold text-rito-dark whitespace-nowrap">670 TL</span>
+            </li>
+          </ul>
+        </article>
+
+      </div>
+
+      <!-- Section Footer Ornament -->
+      <div class="mt-10 text-center">
+        <div class="mb-2 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-serif text-xl tracking-[0.45em] text-rito-gold pl-[0.45em]">RITO</p>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 2. LAPASTA (Page 6)                        -->
+    <!-- ========================================== -->
+    <section id="lapasta" class="menu-section section-anchor pt-4">
+      <div class="text-center mb-8">
+        <div class="mb-3 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-1.5 pl-[0.35em]">
+          LAPASTA
+        </p>
+        <h2 class="font-serif text-2xl sm:text-3xl tracking-[0.2em] text-rito-dark uppercase mb-3 pl-[0.2em]">
+          MAKARNA
+        </h2>
+        <div class="w-36 h-[1.5px] bg-rito-dark mx-auto mb-4"></div>
+        <p class="font-editorial italic text-xl sm:text-2xl text-rito-muted">
+          Her gün taze olarak hazırlanır.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">KREMALI FETTUCİNE</h3>
+            <p class="text-xs sm:text-sm text-rito-dark/80 mt-1 uppercase tracking-wide">FETTUCİNE MAKARNA (250 GR), PARMESAN PEYNİRİ, FESLEĞEN</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">200 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">KREMALI PENNE</h3>
+            <p class="text-xs sm:text-sm text-rito-dark/80 mt-1 uppercase tracking-wide">PENNE MAKARNA (250 GR), PARMESAN PEYNİRİ, FESLEĞEN</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">200 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ARRABİATA SOSLU FETTUCİNE</h3>
+            <p class="text-xs sm:text-sm text-rito-dark/80 mt-1 uppercase tracking-wide">FETTUCİNE MAKARNA (250 GR), PARMESAN PEYNİRİ, FESLEĞEN</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">300 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ARRABİATA SOSLU PENNE</h3>
+            <p class="text-xs sm:text-sm text-rito-dark/80 mt-1 uppercase tracking-wide">PENNE MAKARNA (250 GR), PARMESAN PEYNİRİ, FESLEĞEN</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">300 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">NAPOLİTANA SOSLU FETTUCİNE</h3>
+            <p class="text-xs sm:text-sm text-rito-dark/80 mt-1 uppercase tracking-wide">FETTUCİNE MAKARNA (250 GR), PARMESAN PEYNİRİ, FESLEĞEN</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">300 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">NAPOLİTANA SOSLU PENNE</h3>
+            <p class="text-xs sm:text-sm text-rito-dark/80 mt-1 uppercase tracking-wide">PENNE MAKARNA (250 GR), PARMESAN PEYNİRİ, FESLEĞEN</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">300 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">KÖRİ SOSLU FETTUCİNE</h3>
+            <p class="text-xs sm:text-sm text-rito-dark/80 mt-1 uppercase tracking-wide">FETTUCİNE MAKARNA (250 GR), PARMESAN PEYNİRİ, FESLEĞEN</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">200 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">KÖRİ SOSLU PENNE</h3>
+            <p class="text-xs sm:text-sm text-rito-dark/80 mt-1 uppercase tracking-wide">PENNE MAKARNA (250 GR), PARMESAN PEYNİRİ, FESLEĞEN</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">200 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">PESTO SOSLU FETTUCİNE</h3>
+            <p class="text-xs sm:text-sm text-rito-dark/80 mt-1 uppercase tracking-wide">FETTUCİNE MAKARNA (250 GR), PARMESAN PEYNİRİ, FESLEĞEN</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">350 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">PESTO SOSLU PENNE</h3>
+            <p class="text-xs sm:text-sm text-rito-dark/80 mt-1 uppercase tracking-wide">FETTUCİNE MAKARNA (250 GR), PARMESAN PEYNİRİ, FESLEĞEN</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">350 TL</span>
+        </article>
+      </div>
+
+      <div class="mt-10 text-center">
+        <div class="mb-2 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-serif text-xl tracking-[0.45em] text-rito-gold pl-[0.45em]">RITO</p>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. COLAZIONE (Pages 7 & 8)                 -->
+    <!-- ========================================== -->
+    <section id="colazione" class="menu-section section-anchor pt-4">
+      <!-- Part A: Kruvasan Sandviç (Page 7) -->
+      <div class="text-center mb-8">
+        <div class="mb-3 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-1.5 pl-[0.35em]">
+          COLAZIONE
+        </p>
+        <h2 class="font-serif text-2xl sm:text-3xl tracking-[0.18em] text-rito-dark uppercase mb-3 pl-[0.18em]">
+          KRUVASAN SANDVİÇ
+        </h2>
+        <div class="w-44 h-[1.5px] bg-rito-dark mx-auto mb-4"></div>
+        <p class="font-editorial italic text-xl sm:text-2xl text-rito-muted">
+          El yapımı, % 100 Tereyağlı Kruvasan ile servis edilir.
+        </p>
+      </div>
+
+      <div class="space-y-5 mb-14">
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">SADE KRUVASAN</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Tereyağlı Kruvasan.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">SCRAMBLE KRUVASAN</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Tereyağlı Kruvasan, 3 adet Yumurta, Yeşillik.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">420 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">SCRAMBLE KRUVASAN DANA FÜME</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Tereyağlı Kruvasan, 3 adet Yumurta, Dana Füme, Yeşillik.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">570 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">SCRAMBLE KRUVASAN HİNDİ FÜME</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Tereyağlı kruvasan, 3 adet Yumurta, Hindi Füme, Yeşillik.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">470 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">SCRAMBLE KRUVASAN AVAKADO</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Tereyağlı Kruvasan, 3 adet Yumurta, Avakado Püresi, Yeşillik.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">570 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">SCRAMBLE KRUVASAN PESTO</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Tereyağlı Kruvasan, 3 adet Yumurta, Pesto Püresi, Yeşillik.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">570 TL</span>
+        </article>
+      </div>
+
+      <!-- Part B: Tost (Page 8) -->
+      <div class="text-center mb-8 pt-4">
+        <div class="mb-3 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-1.5 pl-[0.35em]">
+          COLAZIONE
+        </p>
+        <h3 class="font-serif text-2xl sm:text-3xl tracking-[0.2em] text-rito-dark uppercase mb-3 pl-[0.2em]">
+          TOST
+        </h3>
+        <div class="w-40 h-[1.5px] bg-rito-dark mx-auto mb-4"></div>
+        <p class="font-editorial italic text-xl sm:text-2xl text-rito-muted">
+          Büyük Boy Tost Ekmeği ve % 100 Tereyağı ile servis edilir.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">KAŞARLI TOST</h4>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Kaşar Peyniri</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">200 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">KAŞARLI SUCUKLU TOSTA</h4>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Kaşar Peyniri, Hakiki Kayseri Sucuğu</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">300 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">HİNDİ FÜMELİ TOST</h4>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Kaşar Peyniri, Hindi Füme.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">290 TL</span>
+        </article>
+      </div>
+
+      <div class="mt-10 text-center">
+        <div class="mb-2 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-serif text-xl tracking-[0.45em] text-rito-gold pl-[0.45em]">RITO</p>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. PICCOLI DOLCI & I DOLCI (Pages 9 & 14)  -->
+    <!-- ========================================== -->
+    <section id="piccoli-dolci" class="menu-section section-anchor pt-4">
+      <!-- Part A: PICCOLI DOLCI - Kruvasan Tatlı (Page 9) -->
+      <div class="text-center mb-8">
+        <div class="mb-3 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-1.5 pl-[0.35em]">
+          PICCOLI DOLCI
+        </p>
+        <h2 class="font-serif text-2xl sm:text-3xl tracking-[0.18em] text-rito-dark uppercase mb-3 pl-[0.18em]">
+          KRUVASAN TATLI
+        </h2>
+        <div class="w-48 h-[1.5px] bg-rito-dark mx-auto mb-4"></div>
+        <p class="font-editorial italic text-xl sm:text-2xl text-rito-muted">
+          Günlük üretim; pudra şekeriyle tamamlanır.
+        </p>
+      </div>
+
+      <div class="space-y-5 mb-14">
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-editorial font-semibold text-base sm:text-lg tracking-wider text-rito-dark uppercase">PISTACCHIO</h3>
+            <p class="font-editorial italic text-base text-rito-muted mt-0.5">Antep fıstığı kreması ve beyaz çikolata dokunuşu.</p>
+          </div>
+          <span class="font-editorial font-semibold text-base sm:text-lg text-rito-dark whitespace-nowrap">230</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-editorial font-semibold text-base sm:text-lg tracking-wider text-rito-dark uppercase">GIANDUIA</h3>
+            <p class="font-editorial italic text-base text-rito-muted mt-0.5">Fındıklı bitter çikolata ve karamelize fındık.</p>
+          </div>
+          <span class="font-editorial font-semibold text-base sm:text-lg text-rito-dark whitespace-nowrap">220</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-editorial font-semibold text-base sm:text-lg tracking-wider text-rito-dark uppercase">CREMA DI LIMONE</h3>
+            <p class="font-editorial italic text-base text-rito-muted mt-0.5">Limon kreması, mascarpone ve pudra şekeri.</p>
+          </div>
+          <span class="font-editorial font-semibold text-base sm:text-lg text-rito-dark whitespace-nowrap">210</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-editorial font-semibold text-base sm:text-lg tracking-wider text-rito-dark uppercase">FRUTTI DI BOSCO</h3>
+            <p class="font-editorial italic text-base text-rito-muted mt-0.5">Orman meyveleri ve vanilyalı pastacı kreması.</p>
+          </div>
+          <span class="font-editorial font-semibold text-base sm:text-lg text-rito-dark whitespace-nowrap">230</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-editorial font-semibold text-base sm:text-lg tracking-wider text-rito-dark uppercase">MELA E CANNELLA</h3>
+            <p class="font-editorial italic text-base text-rito-muted mt-0.5">Karamelize elma, tarçın ve vanilya.</p>
+          </div>
+          <span class="font-editorial font-semibold text-base sm:text-lg text-rito-dark whitespace-nowrap">200</span>
+        </article>
+      </div>
+
+      <!-- Part B: I DOLCI - Tatlılar (Page 14) -->
+      <div class="text-center mb-8 pt-4">
+        <div class="mb-3 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-1.5 pl-[0.35em]">
+          I DOLCI
+        </p>
+        <h3 class="font-serif text-2xl sm:text-3xl tracking-[0.2em] text-rito-dark uppercase mb-3 pl-[0.2em]">
+          TATLILAR
+        </h3>
+        <div class="w-40 h-[1.5px] bg-rito-dark mx-auto mb-4"></div>
+        <p class="font-editorial italic text-xl sm:text-2xl text-rito-muted">
+          Her gün taze Olarak Hazırlanan.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">SAN SEBASTIAN</h4>
+            <p class="text-xs sm:text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Labne Peyniri, taze peynir, krema, kaymak, pudra şekeri, yumurta, buğday unu ve nişasta.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">350 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark">Browni</h4>
+            <p class="text-xs sm:text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Sütlü çikolata, bitter çikolata, beyaz çikolata, tereyağı, şeker, yumurta, buğday unu ve kakao.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">350 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">SNICKERS BAR</h4>
+            <p class="text-xs sm:text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Labne Peyniri, taze peynir, krema, burçak bisküvi, şeker, yumurta, tereyağ, limon suyu, limon kabuğu, nişasta ve beyaz çikolata.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">350 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">TIRAMISU KLASIK (300cc)</h4>
+            <p class="font-serif italic text-xs sm:text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Mascarpone peyniri, labne peyniri, krema, yumurta sarısı, şeker, kedi dili bisküvisi, kahve ve kakao.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">350 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">TIRAMUSU PISTACHIO (300cc)</h4>
+            <p class="font-serif italic text-xs sm:text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Mascarpone peyniri, labne peyniri, krema, antep fıstığı kreması, yumurta sarısı, şeker, kedi dili bisküvisi, antep fıstığı ve kahve.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">350 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">CILEKLI MAGNOLIA CUP (350CC)</h4>
+            <p class="font-serif italic text-xs sm:text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Süt, krema, şeker, burçak bisküvi, yumurta sarısı, buğday unu, nişasta, tereyağı ve çilek</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">350 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">NUTELLALI MAGNOLIA CUP (350CC)</h4>
+            <p class="text-xs sm:text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Süt, krema, şeker, burçak bisküvi, yumurta sarısı, buğday unu, nişasta, tereyağı ve nutella.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">350 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">LOTUSLU MAGNOLIA CUP (350CC)</h4>
+            <p class="text-xs sm:text-sm text-rito-dark/85 mt-0.5 leading-relaxed">Süt, krema, şeker, tereyağlı kek kırıntısı, yumurta sarısı, buğday unu, nişasta, tereyağı ve lotus.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">350 TL</span>
+        </article>
+      </div>
+
+      <div class="mt-10 text-center">
+        <div class="mb-2 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-serif text-xl tracking-[0.45em] text-rito-gold pl-[0.45em]">RITO</p>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. CAFFÈ (Pages 10 & 11)                   -->
+    <!-- ========================================== -->
+    <section id="caffe" class="menu-section section-anchor pt-4">
+      <!-- Part A: CAFFÈ CALDO - Sıcak Kahveler (Page 10) -->
+      <div class="text-center mb-8">
+        <div class="mb-3 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-1.5 pl-[0.35em]">
+          CAFFÈ CALDO
+        </p>
+        <h2 class="font-serif text-2xl sm:text-3xl tracking-[0.18em] text-rito-dark uppercase mb-3 pl-[0.18em]">
+          SICAK KAHVELER
+        </h2>
+        <div class="w-48 h-[1.5px] bg-rito-dark mx-auto mb-4"></div>
+        <p class="font-editorial italic text-xl sm:text-2xl text-rito-muted">
+          Seçkin çekirdekler, her fincan için taze öğütülür.
+        </p>
+      </div>
+
+      <div class="space-y-5 mb-14">
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ESPRESSO</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Klasik İtalyan kavurması; yoğun ve dengeli.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">DOUBLE ESPRESSO</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Klasik İtalyan kavurması; yoğun ve dengeli.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">220 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">AMERICANO</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Espresso, bir dokunuş süt köpüğü.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">CAPPUCCINO</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Kadifemsi süt köpüğüyle günün ritüeli.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">CORTADO</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Kadifemsi süt köpüğüyle günün ritüeli.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">LATTE</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Yumuşak espresso, bol sıcak süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">CARAMEL LATTE</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Yumuşak espresso, bol sıcak süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">VANILYA LATTE</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Yumuşak espresso, bol sıcak süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ROASTED HAZELNUT LATTE</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Yumuşak espresso, bol sıcak süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">WHITE MOCHA</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Beyaz Çikolata, Espresso ve süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">MOCHA</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Bitter çikolata, espresso ve süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+      </div>
+
+      <!-- Part B: CAFFÈ FREDDO - Soğuk Kahveler (Page 11) -->
+      <div class="text-center mb-8 pt-4">
+        <div class="mb-3 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-1.5 pl-[0.35em]">
+          CAFFÈ FREDDO
+        </p>
+        <h3 class="font-serif text-2xl sm:text-3xl tracking-[0.18em] text-rito-dark uppercase mb-3 pl-[0.18em]">
+          SOĞUK KAHVELER
+        </h3>
+        <div class="w-48 h-[1.5px] bg-rito-dark mx-auto mb-4"></div>
+        <p class="font-editorial italic text-xl sm:text-2xl text-rito-muted">
+          Seçkin çekirdekler, her fincan için taze öğütülür.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ICE AMERICANO</h4>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Espresso, bir dokunuş süt köpüğü.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ICE LATTE</h4>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Yumuşak espresso, bol sıcak süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ICE CARAMEL LATTE</h4>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Yumuşak espresso, bol sıcak süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ICE VANILYA LATTE</h4>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Yumuşak espresso, bol sıcak süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ICE ROASTED HAZELNUT LATTE</h4>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Yumuşak espresso, bol sıcak süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ICE WHITE MOCHA</h4>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Beyaz Çikolata, Espresso ve süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ICE MOCHA</h4>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Bitter çikolata, espresso ve süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+      </div>
+
+      <div class="mt-10 text-center">
+        <div class="mb-2 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-serif text-xl tracking-[0.45em] text-rito-gold pl-[0.45em]">RITO</p>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 6. BEVANDE (Pages 12 & 13)                 -->
+    <!-- ========================================== -->
+    <section id="bevande" class="menu-section section-anchor pt-4">
+      <!-- Part A: BEVANDE FREDDE - Soğuk İçecekler (Page 12) -->
+      <div class="text-center mb-8">
+        <div class="mb-3 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-1.5 pl-[0.35em]">
+          BEVANDE FREDDE
+        </p>
+        <h2 class="font-serif text-2xl sm:text-3xl tracking-[0.18em] text-rito-dark uppercase mb-3 pl-[0.18em]">
+          SOĞUK İÇECEKLER
+        </h2>
+        <div class="w-48 h-[1.5px] bg-rito-dark mx-auto mb-3"></div>
+        <div class="w-20 h-px bg-rito-border mx-auto"></div>
+      </div>
+
+      <div class="space-y-5 mb-14">
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">BERRY HIBISCUS</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Yumuşak espresso, bol sıcak süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">COOL LIME</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Beyaz Çikolata, Espresso ve süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">ESPRESSO LIME</h3>
+            <p class="font-serif italic text-sm text-rito-dark/85 mt-0.5">Bitter çikolata, espresso ve süt.</p>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">190 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <div>
+            <h3 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">SU</h3>
+          </div>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">60 TL</span>
+        </article>
+      </div>
+
+      <!-- Part B: BEVANDE CALDE - Sıcak İçecekler (Page 13) -->
+      <div class="text-center mb-8 pt-4">
+        <div class="mb-3 flex justify-center"><span class="diamond-sm"></span></div>
+        <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase mb-1.5 pl-[0.35em]">
+          BEVANDE CALDE
+        </p>
+        <h3 class="font-serif text-2xl sm:text-3xl tracking-[0.18em] text-rito-dark uppercase mb-3 pl-[0.18em]">
+          SICAK İÇECEKLER
+        </h3>
+        <div class="w-24 h-px bg-rito-border mx-auto"></div>
+      </div>
+
+      <div class="space-y-5">
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">BARDAK ÇAY</h4>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">60 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">FİNCAN ÇAY</h4>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">90 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">TÜRK KAHVESİ</h4>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">160 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">DOUBLE TÜRK KAHVESİ</h4>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">200 TL</span>
+        </article>
+
+        <article class="menu-item flex items-baseline justify-between gap-4 pb-4 border-b border-rito-border/70">
+          <h4 class="font-serif font-semibold text-sm sm:text-base tracking-wide text-rito-dark uppercase">BİTKİ ÇAYLARI</h4>
+          <span class="font-serif font-semibold text-sm sm:text-base text-rito-dark whitespace-nowrap">160 TL</span>
+        </article>
+      </div>
+
+      <div class="mt-10 text-center">
+        <div class="mb-2 flex justify-center"><span class="diamond"></span></div>
+        <p class="font-serif text-xl tracking-[0.45em] text-rito-gold pl-[0.45em]">RITO</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Closing Page / Footer (Page 15 of PDF - GRAZIE) -->
+  <footer class="border-t border-rito-border bg-rito-card/60 py-16 px-6 text-center max-w-2xl mx-auto">
+    <div class="mb-6 flex justify-center">
+      <span class="diamond-sm"></span>
+    </div>
+
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-[0.35em] text-rito-dark uppercase mb-4 pl-[0.35em]">
+      GRAZIE
+    </h2>
+
+    <div class="w-24 h-px bg-rito-border mx-auto mb-8"></div>
+
+    <div class="space-y-4 max-w-md mx-auto font-editorial italic text-lg sm:text-xl text-rito-muted leading-relaxed mb-12">
+      <p>Tüm lezzetlerimiz, mevsimin en taze malzemeleriyle günlük olarak hazırlanır.</p>
+      <p>Fiyatlarımıza servis dahildir.</p>
+      <p>Alerjen bilgileri için ekibimizden bilgi alabilirsiniz.</p>
+    </div>
+
+    <p class="font-serif text-4xl sm:text-5xl tracking-[0.22em] text-rito-dark mb-4 pl-[0.22em]">
+      RITO
+    </p>
+
+    <div class="w-24 h-px bg-rito-border mx-auto mb-5"></div>
+
+    <p class="font-editorial text-xs sm:text-sm tracking-[0.35em] text-rito-gold uppercase">
+      CAFE &nbsp;·&nbsp; BAKERY &nbsp;·&nbsp; PİZZA
+    </p>
+
+    <div class="mt-10">
+      <a href="#top" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-rito-border text-xs font-serif tracking-widest uppercase text-rito-muted hover:text-rito-dark hover:border-rito-gold transition">
+        <span>Başa Dön</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 15l7-7 7 7" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts: Smooth Scroll Spy, Search Filtering & Dough Highlight -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const navPills = document.querySelectorAll('.nav-pill');
+      const sections = document.querySelectorAll('.menu-section');
+      const searchInput = document.getElementById('searchInput');
+      const clearSearchBtn = document.getElementById('clearSearchBtn');
+      const resetSearchBtn = document.getElementById('resetSearchBtn');
+      const emptyState = document.getElementById('emptyState');
+      const doughBadges = document.querySelectorAll('.dough-badge');
+      const doughRows = document.querySelectorAll('.dough-row');
+
+      // 1. Category Click & Smooth Scroll
+      navPills.forEach(function (pill) {
+        pill.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = pill.getAttribute('data-target');
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          setActivePill(targetId);
+        });
+      });
+
+      function setActivePill(targetId) {
+        navPills.forEach(function (pill) {
+          if (pill.getAttribute('data-target') === targetId) {
+            pill.classList.add('active');
+            pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+      }
+
+      // 2. Scroll Spy via IntersectionObserver
+      const observerOptions = {
+        root: null,
+        rootMargin: '-110px 0px -65% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setActivePill(entry.target.id);
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(function (sec) {
+        observer.observe(sec);
+      });
+
+      // 3. Turkish-aware Live Search Filter
+      function normalizeTr(str) {
+        return (str || '')
+          .toLocaleLowerCase('tr-TR')
+          .replace(/ı/g, 'i')
+          .replace(/ğ/g, 'g')
+          .replace(/ü/g, 'u')
+          .replace(/ş/g, 's')
+          .replace(/ö/g, 'o')
+          .replace(/ç/g, 'c')
+          .replace(/î/g, 'i')
+          .replace(/è/g, 'e');
+      }
+
+      function filterMenu() {
+        const rawQuery = searchInput.value.trim();
+        const query = normalizeTr(rawQuery);
+
+        if (rawQuery.length > 0) {
+          clearSearchBtn.classList.remove('hidden');
+        } else {
+          clearSearchBtn.classList.add('hidden');
+        }
+
+        let totalVisible = 0;
+
+        sections.forEach(function (section) {
+          const items = section.querySelectorAll('.menu-item');
+          let sectionVisible = 0;
+
+          items.forEach(function (item) {
+            const text = normalizeTr(item.textContent);
+            if (!query || text.indexOf(query) !== -1) {
+              item.classList.remove('hidden');
+              sectionVisible++;
+              totalVisible++;
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+
+          if (sectionVisible > 0) {
+            section.classList.remove('hidden');
+          } else {
+            section.classList.add('hidden');
+          }
+        });
+
+        if (totalVisible === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+
+      searchInput.addEventListener('input', filterMenu);
+
+      clearSearchBtn.addEventListener('click', function () {
+        searchInput.value = '';
+        filterMenu();
+        searchInput.focus();
+      });
+
+      resetSearchBtn.addEventListener('click', function () {
+        searchInput.value = '';
+        filterMenu();
+      });
+
+      // 4. Pizza Dough Variant Filter / Highlighter
+      doughBadges.forEach(function (badge) {
+        badge.addEventListener('click', function () {
+          const selected = badge.getAttribute('data-dough');
+
+          doughBadges.forEach(function (b) {
+            b.classList.remove('active');
+          });
+          badge.classList.add('active');
+
+          doughRows.forEach(function (row) {
+            const type = row.getAttribute('data-dough-row');
+            if (selected === 'all') {
+              row.classList.remove('opacity-30', 'bg-rito-card');
+            } else if (type === selected) {
+              row.classList.remove('opacity-30');
+              row.classList.add('bg-rito-card');
+            } else {
+              row.classList.remove('bg-rito-card');
+              row.classList.add('opacity-30');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
